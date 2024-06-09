@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication1.Models.ViewPersona>
+
+@{
+    Layout = null;
+}
+<p>
+    <a asp-action="Create" asp-route-IdPersona="@ViewBag.IdPersona">Agregar una profesion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profesion)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPersonaProfesion">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPersonaProfesion">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPersonaProfesion">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

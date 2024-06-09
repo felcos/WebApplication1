@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.TblCentroRedSocial
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Edit</h1>
+
+<h4>TblCentroRedSocial</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IdCentro" class="control-label"></label>
+                <select asp-for="IdCentro" class="form-control" asp-items="ViewBag.IdCentro"></select>
+                <span asp-validation-for="IdCentro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdRedSocial" class="control-label"></label>
+                <select asp-for="IdRedSocial" class="form-control" asp-items="ViewBag.IdRedSocial"></select>
+                <span asp-validation-for="IdRedSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RedSocial" class="control-label"></label>
+                <input asp-for="RedSocial" class="form-control" />
+                <span asp-validation-for="RedSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
